@@ -21,7 +21,7 @@ while (*format)
 if (*format == '%')
 {
 format++;
-// Handle case when format ends with %
+/* Handle case when format ends with % */
 if (*format == '\0')
 return (-1);
 
@@ -35,7 +35,7 @@ else if (*format == 's')
 char *str = va_arg(args, char *);
 if (!str)
 {
-// Print (null) exactly as printf does
+/* Print (null) exactly as printf does */
 count += _putchar('(');
 count += _putchar('n');
 count += _putchar('u');
@@ -58,7 +58,7 @@ count += _putchar('%');
 }
 else
 {
-// Handle unknown specifier by printing % and the character
+/* Handle unknown specifier by printing % and the character */
 count += _putchar('%');
 count += _putchar(*format);
 }
