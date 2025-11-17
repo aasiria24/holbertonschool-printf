@@ -6,8 +6,7 @@ The function processes a format string and variadic arguments, writes formatted 
 ---
 
 ## Requirements
-
-- Environment: Ubuntu 20.04 LTS  
+ 
 - Compiler: `gcc -Wall -Werror -Wextra -pedantic -std=gnu89`  
 - Coding style: Betty  
 - No global variables  
@@ -42,7 +41,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 💡Project Structure
 	•	main.h — Function prototypes
-	•	_printf.c — Core implementation
+	•	printf.c — Core implementation
 	•	Additional helper files
 	•	man_3_printf — Manual page
 	•	README.md
@@ -54,10 +53,8 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 You may create your own main.c files for testing (not pushed to the repo).
 
 Example test:
-_printf("String: [%s]\n", "Hello");
-printf("String: [%s]\n", "Hello");
 
-_printf("Number: [%d]\n", 123);
+printf("String: [%s]\n", "Hello");
 printf("Number: [%d]\n", 123);
 
 ---
