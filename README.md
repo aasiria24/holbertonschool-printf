@@ -36,7 +36,7 @@ Flags, field width, precision, and length modifiers are not handled.
 
 ## Compilation
 
-```bash
+bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 💡Project Structure
