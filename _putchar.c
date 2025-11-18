@@ -46,7 +46,10 @@ if (n < 0)
 count += _putchar('-');
 num = -n;
 }
-
+else
+{
+num = n;
+}
 if (num / 10)
 count += print_number(num / 10);
 
