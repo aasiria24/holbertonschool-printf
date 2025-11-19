@@ -1,6 +1,6 @@
 .\" Manpage for _printf project functions
 .\" Description: Custom printf implementation with helper functions
-.\" Author: [Amaal Asiri]
+.\" Author: [Amaal Asiri / Mostafa Alalmi]
 
 .TH _PRINTF_PROJECT 3 "2025" "1.0" "Custom Printf Implementation"
 
@@ -189,4 +189,4 @@ This implementation follows the GNU89 standard and Betty coding style.
 This custom _printf implementation was developed as part of the Holberton School curriculum to understand variadic functions and the inner workings of printf.
 
 .SH AUTHORS
-Amaal Asiri as part of a Holberton School group project.
+Amaal Asiri and Mostafa Alalmi as part of a Holberton School group project.
