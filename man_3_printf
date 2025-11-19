@@ -1,0 +1,192 @@
+.\" Manpage for _printf project functions
+.\" Description: Custom printf implementation with helper functions
+.\" Author: [Amaal Asiri]
+
+.TH _PRINTF_PROJECT 3 "2025" "1.0" "Custom Printf Implementation"
+
+.SH NAME
+_printf, _putchar, print_string, print_number \- formatted output conversion and helper functions
+
+.SH SYNOPSIS
+.nf
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.BI "int _putchar(char " c ");"
+.BI "int print_string(char *" str ");"
+.BI "int print_number(int " n ");"
+.fi
+
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a
+.I format
+string and writes it to
+.BR stdout ,
+the standard output stream.
+
+The
+.I format
+string is a character string composed of zero or more directives:
+.IP \(bu 2
+Ordinary characters (not
+.BR % ),
+which are copied unchanged to the output stream.
+.IP \(bu 2
+Conversion specifications, each of which results in fetching zero or more
+subsequent arguments. Each conversion specification is introduced by the
+.B %
+character and ends with a conversion specifier.
+
+.SS Helper Functions
+.TP
+.B _putchar()
+Writes a single character to stdout.
+
+.TP
+.B print_string()
+Prints a string of characters. If the string is NULL, prints "(null)".
+
+.TP
+.B print_number()
+Prints a signed decimal integer, handling both positive and negative numbers.
+
+.SH CONVERSION SPECIFIERS
+The following conversion specifiers are supported:
+
+.TP
+.B %c
+Prints a single character.
+
+.TP
+.B %s
+Prints a string of characters.
+
+.TP
+.B %%
+Prints a literal % character.
+
+.TP
+.B %d, %i
+Prints a signed decimal integer.
+
+.PP
+The
+.B _printf
+function does not handle flag characters, field width, precision, or length modifiers.
+
+.SH RETURN VALUE
+Upon successful return, all functions return the number of characters printed 
+(excluding the null byte used to end output to strings).
+
+If an output error is encountered, a negative value is returned.
+
+.SH EXAMPLES
+The following example demonstrates the use of all functions:
+
+.nf
+#include "main.h"
+
+int main(void)
+{
+    int len;
+    
+    /* Using _printf with various specifiers */
+    len = _printf("Hello, %s!\\n", "world");
+    _printf("Printed %d characters\\\\n", len);
+    _printf("Character: %c, Number: %d\\\\n", 'A', 42);
+    _printf("Percent sign: %%\\\\n");
+    _printf("Negative: %i\\\\n", -123);
+    
+    /* Using helper functions directly */
+    _putchar('H');
+    _putchar('i');
+    _putchar('\\\\n');
+    
+    print_string("Direct string print\\\\n");
+    print_number(999);
+    _putchar('\\\\n');
+    
+    return (0);
+}
+.fi
+
+.SH COMPILATION
+Compile your code with:
+.nf
+.B gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+.fi
+
+.SH AUTHORED FUNCTIONS
+The implementation uses the following authorized functions and macros:
+.IP \(bu 2
+.BR write (2)
+.IP \(bu 2
+.BR malloc (3)
+.IP \(bu 2
+.BR free (3)
+.IP \(bu 2
+.BR va_start (3)
+.IP \(bu 2
+.BR va_end (3)
+.IP \(bu 2
+.BR va_copy (3)
+.IP \(bu 2
+.BR va_arg (3)
+
+.SH PROJECT STRUCTURE
+.nf
+main.h          - Header file with function prototypes
+_printf.c       - Main _printf function implementation
+_putchar.c      - Helper functions (_putchar, print_string, print_number)
+README.md       - Project documentation
+.fi
+
+.SH IMPLEMENTATION DETAILS
+.IP \(bu 2
+Uses variadic functions for handling variable arguments
+.IP \(bu 2
+Implements recursion for integer printing
+.IP \(bu 2
+Handles NULL strings gracefully by printing "(null)"
+.IP \(bu 2
+Follows Betty coding style standards
+.IP \(bu 2
+Compiles with strict warning flags
+
+.SH BUGS
+The
+.B _printf
+function is a custom implementation and may not handle all edge cases exactly like the standard
+.BR printf (3)
+function.
+
+This implementation does not handle buffer management like the C library printf function.
+
+The following features are not implemented:
+.IP \(bu 2
+Flag characters (+, space, #, 0, -)
+.IP \(bu 2
+Field width
+.IP \(bu 2
+Precision
+.IP \(bu 2
+Length modifiers (h, l, L)
+.IP \(bu 2
+Other conversion specifiers (u, o, x, X, p, etc.)
+
+.SH SEE ALSO
+.BR printf (3),
+.BR write (2),
+.BR stdarg (3),
+.BR putchar (3)
+
+.SH STANDARDS
+This implementation follows the GNU89 standard and Betty coding style.
+
+.SH HISTORY
+This custom _printf implementation was developed as part of the Holberton School curriculum to understand variadic functions and the inner workings of printf.
+
+.SH AUTHORS
+Amaal Asiri as part of a Holberton School group project.
