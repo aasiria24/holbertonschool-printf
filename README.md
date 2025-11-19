@@ -47,18 +47,20 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 	•	README.md
 
 ---
-
 🧪 Testing
-
 You may create your own main.c files for testing (not pushed to the repo).
 
 Example test:
 
 printf("String: [%s]\n", "Hello");
 printf("Number: [%d]\n", 123);
-
 ---
+## Manual Page
+A comprehensive manual page is available for the entire _printf project:
 
+```bash
+man ./man_3_printf_project
+---
 🏁 Final Notes
 
 If a task does not specify how to handle an edge case, follow the behavior of the standard printf.
