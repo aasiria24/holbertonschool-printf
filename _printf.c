@@ -1,55 +1,62 @@
 #include "main.h"
 
-/**
-* _printf - produces output according to a format
-* @format: character string containing directives
-*
-* Return: number of characters printed (excluding null byte)
-*/
 int _printf(const char *format, ...)
 {
-va_list args;
-int count = 0;
+	va_list args;
+	int i = 0, count = 0;
 
-if (!format || (format[0] == '%' && format[1] == '\0'))
-return (-1);
+	if (format == NULL)
+		return (-1);
 
-va_start(args, format);
+	va_start(args, format);
 
-while (*format)
-{
-if (*format == '%')
-{
-format++;
-if (*format == 'c')
-{
-count += _putchar(va_arg(args, int));
-}
-else if (*format == 's')
-{
-count += print_string(va_arg(args, char *));
-}
-else if (*format == '%')
-{
-count += _putchar('%');
-}
-else if (*format == 'd' || *format == 'i')
-{
-count += print_number(va_arg(args, int));
-}
-else
-{
-count += _putchar('%');
-count += _putchar(*format);
-}
-}
-else
-{
-count += _putchar(*format);
-}
-format++;
+	while (format[i])
+	{
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+			count++;
+		}
+		else
+		{
+			i++; /* تجاوز % */
+
+			switch (format[i])
+			{
+				case 'c':
+					_putchar(va_arg(args, int));
+					count++;
+					break;
+
+				case 's':
+					count += print_string(va_arg(args, char *));
+					break;
+
+				case 'd':
+				case 'i':
+					count += print_number(va_arg(args, int));
+					break;
+
+				case 'b':
+					count += print_binary(va_arg(args, unsigned int));
+					break;
+
+				case '%':
+					_putchar('%');
+					count++;
+					break;
+
+				default:
+					_putchar('%');
+					_putchar(format[i]);
+					count += 2;
+					break;
+			}
+		}
+		i++;
+	}
+
+	va_end(args);
+	return (count);
 }
 
-va_end(args);
-return (count);
-}
