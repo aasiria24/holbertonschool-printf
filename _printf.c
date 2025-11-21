@@ -42,26 +42,27 @@ int _printf(const char *format, ...)
 				count += print_binary(va_arg(args, unsigned int));
 			}
 			else if (*format == 'u')
-                        {
-                                count += print_unsigned(va_arg(args, unsigned int));
-                        }
-                        else if (*format == 'o')
-                        {
-                                count += print_octal(va_arg(args, unsigned int));
-                        }
-                        else if (*format == 'x')
-                        {
-                                count += print_hex_lower(va_arg(args, unsigned int));
-                        }
-                        else if (*format == 'X')
-                        {
-                                count += print_hex_upper(va_arg(args, unsigned int));
-                        }
+            {
+               count += print_unsigned(va_arg(args, unsigned int));
+            }
+             else if (*format == 'o')
+             {
+              	count += print_octal(va_arg(args, unsigned int));
+             }
+             else if (*format == 'x')
+			 {
+				  count += print_hex_lower(va_arg(args, unsigned int));
+			 }
+            else if (*format == 'X')
+			  {
+				  count += print_hex_upper(va_arg(args, unsigned int));
+			  }
 			else
 			{
 				count += _putchar('%');
 				count += _putchar(*format);
 			}
+		}
 		else
 		{
 			count += _putchar(*format);
