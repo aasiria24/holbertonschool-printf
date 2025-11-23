@@ -27,7 +27,13 @@ The function processes a format string and variadic arguments, writes formatted 
 
 ### Additional
 - `%d` — Integer  
-- `%i` — Integer  
+- `%i` — Integer
+- `%b` — Binary
+- `%u` — unsigned
+- `%o` — octal
+- `%x` — Hex lower
+- `%X` — Hex Upper
+- ذ
 
 **Note:**  
 Flags, field width, precision, and length modifiers are not handled.
